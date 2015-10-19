@@ -1,3 +1,4 @@
+/** SUBMITTED **/
 public class SumOfPrimes {
     public static void main(String[] args){
         System.out.println(sumOfFirst(1000));
@@ -10,7 +11,6 @@ public class SumOfPrimes {
                 currentPrime++;
             }
             sum = sum + currentPrime;
-           System.out.println(currentPrime + " number:"+i);
             currentPrime = currentPrime + 1;
         }
         return sum;
@@ -19,9 +19,17 @@ public class SumOfPrimes {
     public static boolean isPrime(int number){
         if (number < 2)
             return false;
-        for (int i = 2; i < number ; i++) {
-            if (number % i == 0)
-                return false;
+        if (number == 2) return true;
+        if (number == 3) return true;
+        if (number % 2== 0) return false;
+        if (number % 3 == 0) return false;
+
+        int i = 5;
+        int w = 2;
+        while (i * i <= number){
+            if (number % i == 0) return false;
+            i += w;
+            w = 6- w;
         }
         return true;
     }
